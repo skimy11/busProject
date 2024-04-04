@@ -1,0 +1,2154 @@
+a {text-decoration: none;
+    color: black;}
+
+html,body {width: 100%; overflow-x: hidden; overflow-y: auto;}
+
+* {margin: 0; padding: 0;}
+
+.mobile_btn{
+    position: absolute;
+    width: 100%;
+    height: 44px;
+    z-index: 10;
+/*     background-color: #fffa90; */
+} 
+
+.mobile_btn h2 {
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 0;
+}
+
+.mobile_btn h2 span {
+	font-weight: 600;
+}
+
+input[id="hamburger"] {
+  display: none;
+}
+input[id="hamburger"] + label {
+    display: block;
+    width: 17px;
+    height: 16px;
+    position: relative;
+    cursor: pointer;
+    left: 16px;
+    top: 12px;
+}
+input[id="hamburger"] + label span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 30px;
+  background: #000;
+  transition: all 0.35s;
+}
+input[id="hamburger"] + label span:nth-child(1) {
+  top: 0;
+}
+input[id="hamburger"] + label span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+input[id="hamburger"] + label span:nth-child(3) {
+  bottom: 0;
+}
+input[id="hamburger"]:checked + label {
+  z-index: 99;
+}
+input[id="hamburger"]:checked + label span {
+  background: black;
+}
+input[id="hamburger"]:checked + label span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+input[id="hamburger"]:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+input[id="hamburger"]:checked + label span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+div[class="sidebar"] {
+  width: 60%;
+  height: 100%;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 98;
+  transition: all 0.35s;
+  overflow: hidden;
+}
+
+input[id="hamburger"]:checked + label + div {
+  left: 0;
+}
+
+.nav_mobile {
+    position: absolute;
+    top:43px;
+    width: 100%;
+    }
+
+.sidebar .nav_mobile li {
+	color:black;
+    position:relative;
+    float:left; 
+    width:100%; 
+    list-style-type:none; 
+    font-size:20px;
+    border-bottom:1px solid #cccccc4f;
+    font-family: 'Noto Sans KR';
+    font-weight:bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    }
+    
+.sidebar a {
+    padding: 0;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar li a{
+    display:block;
+    font-weight:bold;
+    line-height:40px;
+    margin:0px;
+    padding:0;
+    text-decoration:none;
+    transition: all 0.4s;
+    width: 175px;
+    padding-left: 50px;
+    }
+
+.sidebar li a:hover, .sidebar ul li:hover a {
+
+/*     text-decoration: none; */
+    color:#777;
+/*     padding: 0; */
+/*     margin: 0; */
+/*     border: 0px; */
+}
+
+html.open {
+  overflow: hidden;
+}
+
+#menu.open {
+  left: 0px;
+}
+
+.page_cover.open {
+  display: block;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/menu.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.close {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+#menu {   
+  width: 150px;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: -202px;
+  z-index: 10;
+  border: 1px solid #c9c9c9;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  transition: All 0.2s ease;
+  -webkit-transition: All 0.2s ease;
+  -moz-transition: All 0.2s ease;
+  -o-transition: All 0.2s ease;
+  padding-top: 50px;
+  padding-left: 0px;
+  padding-right: 40px;
+}
+
+#menu a{
+ padding:0;
+ text-decoration: none;
+ font-size: 18px;
+ color: #25a4cd;
+ display: block;
+ transition: 0.3s;
+ }
+
+#menu.open {
+  left: 0px;
+}
+
+.page_cover.open {
+  display: block;
+}
+
+.page_cover {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 4;
+  display: none;
+}
+
+#menu ul { 
+    width:190px; 
+    margin:0; 
+    padding:0;
+    }
+    
+#menu ul.nav li {
+    position:relative; 
+    float:left; 
+    width:100%; 
+    list-style-type:none; 
+    font-size:18px;
+    }
+    
+#menu ul.nav li a {
+    display:block; 
+    width:100%; 
+    height:100%; 
+    line-height:50px; 
+    text-indent:20px;
+    text-align: left;
+    color:#25a4cd; 
+    font-weight:bold; 
+    text-decoration:none;
+    }
+    
+#menu ul.nav li a:hover {
+	background:#eee;
+    }
+    
+#menu ul.nav li .sub_mobile a {
+    position:relative;
+    float:left;
+    display:block;
+    width:100%;
+    z-index:999;
+    background:#ccc;
+	}
+
+#menu ul.nav li .sub_mobile a:hover {
+    background:#787878;
+    color:#fff;
+    z-index:999;
+    }
+    
+#innerSearchLayer {
+    background: #fff;
+}
+
+.cont_body {
+	padding-top: 45px;
+}
+
+.inside_sch {
+    position: relative;
+/*     z-index: 10; */
+    width: 100%;
+    height: 44px;
+}
+
+fieldset, img {
+    border: 0 none;
+}
+
+.screen_out {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.inside_sch .box_search {
+    overflow: hidden;
+    position: relative;
+    height: 29px;
+    margin: 2px 8px 0;
+    padding: 6px 10px 1px;
+    border-radius: 5px;
+    background-color: #f2f3f5;
+}
+
+.inside_sch .tf_keyword {
+    width: 89%;
+    border: 0 none;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 1.38;
+    background-color: transparent;
+    color: #000;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn_sch {
+	border: 0;
+    background: #1977f3;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    padding: 6px 11px;
+    font-size: 14px;
+    line-height: 1;
+}
+
+
+ .aside_profile_area {
+/*     position: relative; */
+/*     display: -webkit-box; */
+/*     display: -webkit-flex; */
+/*     display: flex; */
+/*     -webkit-box-align: center; */
+/*     -webkit-align-items: center; */
+/*     align-items: center; */
+/*     margin: 0 16px; */
+/*     padding: 16px 30px 16px 0; */
+}
+
+ .aside_profile_area .aside_profile {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    vertical-align: top;
+    max-width: 100%;
+}
+
+ .aside_profile_area .aside_profile_thumb {
+    background-position: -50px -50px;
+    overflow: hidden;
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    color: transparent;
+    vertical-align: top;
+    display: block;
+    margin-right: 12px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+
+ .aside_profile_area .aside_profile_thumb img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+ .aside_profile_area .aside_profile_info {
+    min-width: 0;
+}
+
+ .aside_profile_area .aside_profile_info .profile_nickname {
+    display: block;
+/*     font-size: 16px; */
+    line-height: 21px;
+    font-weight: bold;
+    letter-spacing: -0.05px;
+    color: #222225;
+}
+
+ .aside_profile_area .aside_profile_info .profile_id {
+    overflow: hidden;
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    color: #77777a;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.top_search_area {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 44px;
+    margin: 4px 12px 6px 12px;
+    background: #f5f5f8;
+    border-radius: 22px;
+}
+
+.top_search_area .search_keyword_area {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    position: relative;
+    padding: 5px 3px 7px 39px;
+}
+
+.top_search_area .search_keyword_area input {
+	border: none;
+    background: inherit;
+    width: 91%;
+}
+
+.top_search_area .search_keyword_area span {
+	cursor: pointer;
+}
+
+.header_area .top_search_area .search_keyword_area:before {
+    background-position: -52px -152px;
+    overflow: hidden;
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    color: transparent;
+    vertical-align: top;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    content: '';
+}
+
+.header_area .top_search_area .input_search_keyword {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 5px;
+    background: transparent;
+    border: 0;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #222225;
+    box-sizing: border-box;
+}
+
+
+.fa::before {
+  font-family: 'fontawesome';
+  content: "\f004";
+  margin-right: 10px;
+}
+.fa:nth-child(2)::before {
+  font-family: 'fontawesome';
+  content: "\f03e";
+}
+.fa:nth-child(3)::before {
+  font-family: 'fontawesome';
+  content: "\f005";
+}
+
+
+.searchWrap, .routeWrap {
+	width: 600px;
+	height: 800px; 
+	position: absolute; 
+	z-index: 2;
+}
+
+.routeDetailWrap {
+	width: 600px;
+	height: 800px; 
+	position: absolute; 
+	z-index: 2;
+	margin-top: 90px;
+}
+
+.history_search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff
+}
+
+.history_route {
+    position: absolute;
+    top: -53px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff
+}
+
+.history_search .list_history {
+    background-color: #fff
+}
+
+.history_search .list_history li {
+    position: relative;
+    border-bottom: 1px solid #f4f4f4;
+    background-color: #fff
+}
+
+.history_search .list_history .history_ico {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    margin-top: -13px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_history.png) no-repeat 0 0;
+    background-size: 200px auto
+}
+
+.cont_route .list_history .history_ico {
+    left: 14px
+}
+
+.history_search .list_history .history_ico.ico_now {
+    background-position: -150px 0
+}
+
+.history_search .list_history .history_ico.ico_route {
+    margin-top: -12px;
+    background-position: -30px 0
+}
+
+.history_search .list_history .history_ico.ico_subway {
+    background-position: -60px 0
+}
+
+.history_search .list_history .history_ico.ico_bus {
+    background-position: -120px 0
+}
+
+.history_search .list_history .history_ico.ico_busStop {
+    background-position: -90px 0
+}
+
+.history_search .list_history .link_history {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 49px;
+    padding: 0 20px 0 51px;
+    font-size: 16px;
+    line-height: 47px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #000;
+    cursor: pointer;
+}
+
+.history_search .list_history .txt_time {
+    display: none
+}
+
+.cont_route .list_history .link_history {
+    height: auto;
+    padding: 14px 20px 17px 50px;
+    line-height: 18px;
+    box-sizing: border-box
+}
+
+.cont_route .list_history .type_route {
+    min-height: 49px;
+    padding: 14px 20px 13px 50px;
+    font-size: 0;
+    line-height: 0;
+    text-overflow: initial;
+    white-space: normal;
+    vertical-align: middle
+}
+
+.history_search .list_history .link_history .route_title {
+    display: inline;
+    font-size: 16px;
+    line-height: 19px
+}
+
+.history_search .list_history .link_history .route_arrow {
+    display: inline-block;
+    overflow: hidden;
+    width: 11px;
+    height: 6px;
+    margin: 6px 4px 0;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_history.png) no-repeat -180px -5px;
+    background-size: 200px auto;
+    text-indent: -9999px;
+    vertical-align: top
+}
+
+.history_search .list_history .emph_keyword {
+    font-weight: normal;
+    color: #425de8
+}
+
+.history_search .list_history .txt_bar {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: .73em;
+    color: #c9c9c9;
+    vertical-align: top
+}
+
+.history_search .list_history .txt_info {
+    font-size: .87em;
+    color: #888
+}
+
+.history_search .list_history .txt_mean {
+    font-size: .93em;
+    color: #888
+}
+
+.history_search .list_history .btn_add {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42px;
+    height: 50px;
+    border: 0 none;
+    background: 0;
+    cursor: pointer
+}
+
+.history_search .list_history .ico_add {
+    width: 22px;
+    height: 22px;
+    margin: 0 auto;
+    background-position: 0 -160px;
+    vertical-align: top
+}
+
+.history_search .foot_history {
+    overflow: hidden;
+    width: 100%;
+    background-color: #fbfbfb
+}
+
+.history_search .foot_history.history_none {
+    height: 0;
+    border-bottom: 0 none
+}
+
+.history_search .foot_history .txt_none {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 385px;
+    padding-top: 139px;
+    font-size: 15px;
+    line-height: 17px;
+    color: #777;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #fbfbfb
+}
+
+.cont_route .history_search .foot_history .txt_none {
+    top: 50px;
+    bottom: 0;
+    height: auto;
+    min-height: auto
+}
+
+.route_main .foot_history .txt_none {
+    padding-top: 149px
+}
+
+.history_search .foot_history .txt_none::after {
+    content: '';
+    position: absolute;
+    top: 31px;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_none.png) no-repeat 0 0;
+    background-size: 110px auto;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.route_main .foot_history .txt_none::after {
+    top: 40px
+}
+
+.history_search .foot_history .btn_close {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 33px;
+    color: #888;
+    cursor: pointer;
+    text-align: center
+}
+
+
+.list_route {
+    border-bottom: 1px solid #ddd;
+    background-color: #fff
+}
+
+.list_route li {
+    position: relative;
+    min-height: 59px
+}
+
+.list_route li:first-child {
+    padding-top: 10px
+}
+
+.list_route li:last-child .link_route {
+    border-bottom: 0 none
+}
+
+.list_route li .bus_speed_info .before_speed {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    left: 77px;
+    width: 4px;
+    background-color: #a5a5a5
+}
+
+.list_route li .bus_speed_info .after_speed {
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    left: 77px;
+    width: 4px;
+    background-color: #a5a5a5
+}
+
+.list_route li .bus_speed_info .grey {
+    background-color: #a7a7a7
+}
+
+.list_route li .bus_speed_info .red {
+    background-color: #ff3829
+}
+
+.list_route li .bus_speed_info .orange {
+    background-color: #f9ab15
+}
+
+.list_route li .bus_speed_info .yellow {
+    background-color: #f1d305
+}
+
+.list_route li .bus_speed_info .green {
+    background-color: #39d729
+}
+
+.list_route li .bus_speed_info .center_direction {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    left: 71px;
+    margin-top: -3px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_businfo.png) no-repeat -55px 0;
+    background-size: 115px auto
+}
+
+.directionStyle {
+    left: 147px !important;
+}
+
+.speedStyle, .bfSpdStyle {
+	left: 153px !important;
+}
+
+.lnkRouteStyle {
+	margin-left: 193px !important;
+}
+
+
+.list_route li:last-child .center_direction {
+    margin-top: -8px
+}
+
+.list_route li.disabled .bus_speed_info .center_direction {
+    background-position: -55px -20px
+}
+
+.list_route li.turning_busstop .bus_speed_info .center_direction {
+    left: 46px;
+    width: 43px;
+    height: 20px;
+    margin-top: -10px;
+    background-position: -70px 0
+}
+
+.list_route li.turning_busstop .bus_speed_info .center_direction:before {
+    content: '회차';
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent
+}
+
+.list_route li.turning_busstop.disabled .bus_speed_info .center_direction {
+    background-position: -70px -20px
+}
+
+.list_route li:first-child:last-child .before_speed {
+    background-color: transparent
+}
+
+.list_route li:first-child:last-child .after_speed {
+    background-color: transparent
+}
+
+.list_route li:first-child .before_speed {
+    background-color: transparent
+}
+
+.list_route li:last-child .after_speed {
+    background-color: transparent
+}
+
+.list_route .on {
+    background-color: #f9f9f9
+}
+
+.txt_route {
+    font-size: 14px;
+    line-height: 16px;
+    color: #888;
+}
+
+.link_route {
+    display: block;
+    padding: 18px 50px 15px 0;
+    margin-left: 100px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.tit_route {
+    display: block;
+    overflow: hidden;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.searchEmptyTxt {
+	padding-top: 150px;
+    text-align: center;
+    color: #888;
+}
+
+.txt_route {
+    font-size: 14px;
+    line-height: 16px;
+    color: #888;
+}
+
+.favorite-icon {
+	cursor: pointer;
+}
+
+.scroll_area {
+	background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+}
+
+.list_result {
+    display: block;
+    border-top: 1px solid #eaedf4;
+    border-bottom: 1px solid #eaedf4;
+}
+
+.fCMOZl.item_result[class*="type_bus"] {
+    padding: 0px 30px 0 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_result .item_result::before {
+    position: absolute;
+    left: 21px;
+    right: 21px;
+    bottom: -1px;
+    z-index: 10;
+    height: 1px;
+    background: rgb(245, 246, 249);
+    content: "";
+}
+
+.list_result .item_result .item_btn {
+    padding: 25px 50px 25px 22px;
+	width: 100%;
+}
+
+.eNBKEN {
+    font-size: 1px;
+    line-height: 1px;
+}
+
+.kDBmYM {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.kDBmYM .bus_icon {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 1.6;
+    width: 28px;
+    height: 19px;
+    margin: -1px 10px 0px 0px;
+    color: #fff;
+    border: 1px solid rgb(0, 108, 255);
+    background: rgb(0, 108, 255);
+    text-align: center;
+    font-weight: 500;
+}
+
+.kDBmYM .bus_text {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 16px;
+    color: rgb(0, 0, 0);
+    letter-spacing: -0.2px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.routeNmTxt {
+	position: absolute;
+    top: 51px;
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    color: #444;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.routeNmTxt > div {
+	background: #fff;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px;
+}
+
+.routeNmTxt span {
+	font-weight: 500;
+}
+
+.busEmpty {
+	text-align: center;
+	padding: 35px 0;
+	color: #888;
+}
+
+.list_result .item_result.type_bus .btn_favorite_more {
+    line-height: 0;
+    cursor: pointer;
+}
+
+.ndMmWrap {
+	padding:5px; 
+	min-width: 140px;
+}
+
+.ndNmStyle {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: rgb(0, 104, 195);
+}
+
+.ndNmInfo {
+	display: flex;
+	justify-content: space-between;
+}
+
+i.fas.fa-star {
+	color: #fed500;
+}
+
+.emtyTxt {
+	text-align: center;
+    padding: 10px;
+    color: #888;
+}
+
+.summary {
+    padding: 15px 20px 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.tit_summary {
+    font-size: 19px;
+    color: #3157dd;
+    margin-top: 18px;
+    margin-right: 20px;
+}
+
+.infoEtc {
+    margin-top: 14px;
+    padding: 1px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/busLineView/bg_infoEtc.png) no-repeat
+}
+
+.infoEtc:after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    content: ''
+}
+
+.infoEtc a {
+    float: left;
+    width: 153px;
+    height: 24px;
+    padding: 4px 0;
+    border-right: 1px solid #ddd;
+    text-align: center
+}
+
+.infoEtc a:first-child {
+    width: 154px
+}
+
+.infoEtc a:hover {
+    text-decoration: none
+}
+
+.infoEtc a .img_BusLineView {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: top
+}
+
+.infoEtc .num {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin-left: -1px;
+    font-size: 0;
+    line-height: 0;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/num_fav.png) no-repeat;
+    text-indent: -9999px
+}
+
+.infoEtc .num1 {
+    background-position: 0 0
+}
+
+.infoEtc .num2 {
+    background-position: 0 -20px
+}
+
+.infoEtc .num3 {
+    background-position: 0 -40px
+}
+
+.infoEtc .num4 {
+    background-position: 0 -60px
+}
+
+.infoEtc .num5 {
+    background-position: 0 -80px
+}
+
+.infoEtc .num6 {
+    background-position: 0 -100px
+}
+
+.infoEtc .num7 {
+    background-position: 0 -120px
+}
+
+.infoEtc .num8 {
+    background-position: 0 -140px
+}
+
+.infoEtc .num9 {
+    background-position: 0 -160px
+}
+
+.infoEtc .num10 {
+    margin-left: -2px;
+    width: 15px;
+    background-position: 0 -180px
+}
+
+.infoEtc .ICON-fav {
+    background: 0;
+    border-left: 0 none
+}
+
+.infoEtc .ICON-fav .img_BusLineView {
+    background-position: -76px -138px
+}
+
+.infoEtc .ICON-fav.ACTIVE .img_BusLineView {
+    background-position: -76px -162px
+}
+
+.infoEtc .ICON-fav.ACTIVE .num {
+    display: block
+}
+
+.infoEtc .fit .txt_fit {
+    display: block;
+    height: 16px;
+    padding: 4px 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: #222
+}
+
+.infoEtc .busFiyBtn .img_BusLineView {
+    background-position: -148px -138px
+}
+
+.txt i {
+	color: #888;
+	padding-right: 18px;
+}
+
+.insideWrap .inside_sch {
+    position: absolute;
+    left: 0;
+    height: auto;
+    background-color: #3396ff
+}
+
+.insideWrap .inside_sch:after {
+    content: none
+}
+
+.insideWrap .search_route {
+    overflow: hidden;
+    padding: 14px 7px 10px 12px
+}
+
+.insideWrap .inside_sch .box_search {
+    height: 27px;
+    padding: 7px 43px 2px 11px;
+    margin: 1px 1px 0 0;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.12)
+}
+
+.insideWrap .inside_sch form:nth-of-type(1) .box_search {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.insideWrap .inside_sch form:nth-of-type(2) .box_search {
+    padding: 6px 20px 3px 11px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+.insideWrap .inside_sch .tf_keyword {
+    width: 95%;
+    border: 0 none;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 1.38;
+    background-color: transparent;
+    color: #000;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.insideWrap .cont_route .place_on .tf_keyword {
+    color: #fff
+}
+
+.insideWrap .inside_sch .tf_keyword::-webkit-input-placeholder {
+    color: #90949c
+}
+
+.insideWrap .inside_sch .tf_keyword::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+.insideWrap .inside_sch .search_route .tf_keyword {
+    font-size: 16px;
+    color: #fff
+}
+
+.insideWrap .inside_sch .search_route .tf_keyword::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.64)
+}
+
+.insideWrap .inside_sch .sch_btn {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px
+}
+
+.insideWrap .inside_sch .btn_sch {
+    display: inline;
+    float: left;
+    width: 30px;
+    height: 30px;
+    padding-right: 8px;
+    border: 0 none;
+    font-size: 0;
+    line-height: 0;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center
+}
+
+.insideWrap .inside_sch .btn_reset {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 43px;
+    height: 36px;
+    padding: 0
+}
+
+.insideWrap .inside_sch .btn_reset .ico_del {
+    display: block;
+    width: 17px;
+    height: 17px;
+    margin: 0 auto 1px;
+    background-position: 0 -200px
+}
+
+.insideWrap {
+	padding-top: 55px;
+}
+
+.cont_route .list_public {
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff
+}
+
+.list_public li {
+    border-top: 1px solid #f5f5f5;
+    background-color: #fff
+}
+
+.list_public li.fst {
+    border-top: 0 none
+}
+
+.public_info .txt_public {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 24px;
+    margin: -1px 11px 0 0;
+    padding: 11px 0 1px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: .86em;
+    line-height: 1.18;
+    color: #666;
+    background-color: #f4f4f4;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold
+}
+
+.public_info .txt_public::after {
+    content: "";
+    position: absolute;
+    left: 45px;
+    top: -1px;
+    width: 12px;
+    height: 37px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2013/mobileweb/m320/ico_path_140115.png) no-repeat -30px -170px
+}
+
+.public_info .txt_public.subway_bus {
+    height: 29px;
+    padding-top: 6px;
+    font-size: .71em;
+    line-height: 1.21
+}
+
+.public_info .txt_time {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 25px;
+    color: #000;
+    vertical-align: top
+}
+
+.public_info .txt_time.left_padding {
+    margin: -5px 0 10px 15px
+}
+
+.public_info .txt_trans {
+    margin: 5px 0 0 8px;
+    font-size: 14px;
+    color: #888
+}
+
+.public_info .txt_fare {
+    font-size: 14px;
+    color: #888
+}
+
+.public_info .txt_time+.txt_fare {
+    margin-left: 8px
+}
+
+.public_info .txt_intercity .txt_fare {
+    margin: 0
+}
+
+.public_info .txt_fare:before {
+    content: '요금정보';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    vertical-align: top
+}
+
+.public_info .link_map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    width: 29px;
+    height: 29px;
+    margin: 0 15px 0 0;
+    border-radius: 50%;
+    background-color: #fff
+}
+
+.route_number {
+	font-size: 18px;
+    line-height: 1;
+    color: #006cff;
+    font-weight: 600;
+}
+
+.numStyle {
+    width: 90%;
+    display: flex;
+    justify-content: end;
+}
+
+.public_info .ico_map {
+    width: 29px;
+    height: 29px;
+    background-position: -210px -180px
+}
+
+.public_info .txt_bar {
+    display: inline-block;
+    position: relative;
+    margin: -4px 7px 0 6px;
+    width: 1px;
+    height: 10px;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    background-color: #ddd;
+    vertical-align: middle
+}
+
+.public_info {
+    overflow: hidden;
+    position: relative;
+    padding: 30px 59px 1px 0;
+    font-size: 12px;
+    color: #888;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.cont_route .link_publicinfo {
+    display: block;
+    overflow: hidden;
+    position: relative
+}
+
+.cont_route .proute_wrap .link_publicinfo {
+    padding: 14px 0
+}
+
+.cont_route .iroute_wrap .link_publicinfo {
+    padding: 0 0 6px
+}
+
+.list_public li.lst .link_publicinfo {
+    margin-bottom: 0;
+    border-bottom: 0 none
+}
+
+.list_section .desc_public {
+    display: block;
+    position: relative;
+    margin: 0 50px 0 19px;
+    padding-bottom: 8px;
+    color: #888;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.link_publicinfo .desc_public:nth-last-child(1) {
+    padding-bottom: 4px;
+    margin-top: -1px
+}
+
+.link_publicinfo .desc_public:nth-last-child(1) .txt_ginfo {
+    padding: 0;
+    margin-top: -3px
+}
+
+.link_publicinfo .desc_public:nth-last-child(1):before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    bottom: 18px;
+    width: 2px;
+    height: 300%;
+    background-color: #e5e5e5
+}
+
+.link_publicinfo .desc_public:nth-child(1) {
+    margin-top: 1px
+}
+
+.recomm~.link_publicinfo .desc_public:nth-child(1) {
+    margin-top: 8px
+}
+
+.list_section .txt_section {
+    display: inline;
+    padding: 0 1px 0 0;
+    font-size: 16px;
+    line-height: 18px;
+    vertical-align: top;
+    color: #000;
+    vertical-align: middle
+}
+
+.list_detail .txt_section {
+    display: inline-block
+}
+
+.link_publicinfo .desc_public:nth-last-child(1) .txt_section {
+    padding-top: 0;
+    margin-top: -5px
+}
+
+.link_publicinfo .desc_public:nth-last-child(2) {
+    padding-bottom: 9px
+}
+
+.proute_wrap .desc_public.public_bus:nth-last-child(2) {
+    padding-bottom: 0
+}
+
+.proute_wrap .desc_public.public_INTERCITY_BUS:nth-last-child(2) {
+    padding-bottom: 0
+}
+
+.iroute_wrap .desc_public.public_bus,.iroute_wrap .desc_public.public_INTERCITY_BUS,.iroute_wrap .desc_public.public_EXPRESS {
+    padding-bottom: 8px
+}
+
+.list_section .txt_ginfo {
+    display: inline;
+    padding: 0 0 0 4px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #888;
+    vertical-align: bottom
+}
+
+.list_section .txt_section+.txt_ginfo {
+    line-height: 24px;
+    vertical-align: top
+}
+
+.list_section .group_bus+.txt_ginfo {
+    padding: 0;
+    margin-left: -3px;
+    vertical-align: top;
+    color: #999
+}
+
+.list_detail .txt_ginfo {
+    display: block;
+    padding-left: 0;
+    color: #333
+}
+
+.list_public .desc_public {
+    overflow: hidden;
+    margin-right: 15px
+}
+
+.list_section .public_bus {
+    padding-bottom: 2px
+}
+
+.list_section .public_INTERCITY_BUS {
+    padding-bottom: 2px
+}
+
+.list_section .txt_section .txt_subway_exit_section {
+    padding-left: 5px;
+    font-size: 12px;
+    color: #7a7a7a
+}
+
+.list_section .txt_g {
+/*     display: block; */
+    overflow: hidden;
+    padding: 2px 0 0 39px;
+    line-height: 17px;
+    color: #333;
+    clear: both;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0
+}
+
+.group_bus .numMAUL {
+	font-size: 22px !important;
+    color: #1977f3 !important;
+    font-weight: 600;
+}
+
+.list_section .desc_public:not(:last-child) .txt_g {
+        float: right;
+}
+
+.list_section .public_bus .txt_g {
+    padding-top: 1px
+}
+
+.list_section .public_INTERCITY_BUS .txt_g {
+    padding-top: 1px
+}
+
+.list_section .bus_icon {
+    display: inline-block;
+    font-size: 11px;
+/*     line-height: 1.6; */
+    width: 28px;
+    height: 19px;
+    margin: -1px 10px 0px 0px;
+    color: #fff;
+    border: 1px solid rgb(0, 108, 255);
+    background: rgb(0, 108, 255);
+    text-align: center;
+    font-weight: 500;
+    vertical-align: top;
+}
+
+.list_detail .txt_type {
+    margin-top: 2px
+}
+
+.list_detail .group_bus {
+    display: block
+}
+
+.list_section .numBLUE,.list_section .numGREEN,.list_section .numRED,.list_section .numYELLOW,.list_section .numAIRPORT,.list_section .numGENERAL,.list_section .numSEAT,.list_section .numEXPRESS,.list_section .numMAUL,.list_section .numDIRECT,.list_section .numOUTER,.list_section .numINTERCITY,.list_section .numRURAL,.list_section .numHIGHWAY {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #333
+}
+
+.group_bus span+span {
+    margin-left: -5px
+}
+
+.list_section .numBLUE .txt_type {
+    background-position: 0 0
+}
+
+.list_section .numGREEN .txt_type {
+    background-position: -25px 0
+}
+
+.list_section .numRED .txt_type {
+    background-position: -50px 0
+}
+
+.list_section .numYELLOW .txt_type {
+    background-position: -75px 0
+}
+
+.list_section .numAIRPORT .txt_type {
+    background-position: 0 -15px
+}
+
+.list_section .numGENERAL .txt_type {
+    background-position: -25px -15px
+}
+
+.list_section .numSEAT .txt_type {
+    background-position: -50px -15px
+}
+
+.list_section .numEXPRESS .txt_type {
+    background-position: -75px -15px
+}
+
+.list_section .numMAUL .txt_type {
+    background-position: 0 -30px
+}
+
+.list_section .numDIRECT .txt_type {
+    background-position: -25px -30px
+}
+
+.list_section .numOUTER .txt_type {
+    background-position: -50px -30px
+}
+
+.list_section .numINTERCITY .txt_type {
+    background-position: -75px -30px
+}
+
+.list_section .numRURAL .txt_type {
+    width: 27px;
+    background-position: 0 -45px
+}
+
+.list_section .numHIGHWAY .txt_type {
+    background-position: -30px -45px
+}
+
+.list_section .numBLUE+.numBLUE:before,.list_section .numGREEN+.numGREEN:before,.list_section .numRED+.numRED:before,.list_section .numYELLOW+.numYELLOW:before,.list_section .numAIRPORT+.numAIRPORT:before,.list_section .numGENERAL+.numGENERAL:before,.list_section .numSEAT+.numSEAT:before,.list_section .numEXPRESS+.numEXPRESS:before,.list_section .numMAUL+.numMAUL:before,.list_section .numDIRECT+.numDIRECT:before,.list_section .numDIRECT+.numDIRECT:before,.list_section .numOUTER+.numOUTER:before,.list_section .numINTERCITY+.numINTERCITY:before,.list_section .numRURAL+.numRURAL:before,.list_section .numHIGHWAY+.numHIGHWAY:before {
+    content: ',';
+    display: inline-block;
+    vertical-align: top;
+    text-indent: -5px
+}
+
+.list_section .numBLUE+.numBLUE .txt_type,.list_section .numGREEN+.numGREEN .txt_type,.list_section .numRED+.numRED .txt_type,.list_section .numYELLOW+.numYELLOW .txt_type,.list_section .numAIRPORT+.numAIRPORT .txt_type,.list_section .numGENERAL+.numGENERAL .txt_type,.list_section .numSEAT+.numSEAT .txt_type,.list_section .numEXPRESS+.numEXPRESS .txt_type,.list_section .numMAUL+.numMAUL .txt_type,.list_section .numDIRECT+.numDIRECT .txt_type,.list_section .numOUTER+.numOUTER .txt_type,.list_section .numINTERCITY+.numINTERCITY .txt_type,.list_section .numRURAL+.numRURAL .txt_type,.list_section .numHIGHWAY+.numHIGHWAY .txt_type {
+    display: none
+}
+
+.list_section .bus_direction_info_wrap {
+    display: block;
+    height: 13px;
+    padding-left: 42px;
+    position: relative;
+    margin-bottom: 5px
+}
+
+.list_section .bus_direction_info_wrap .ico_info {
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: 2px;
+    width: 11px;
+    height: 11px;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2013/mobileweb/m320/icon_notice.png) no-repeat 0 0
+}
+
+.list_section .bus_direction_info_wrap .txt_info {
+    font-size: 11px;
+    color: #7a7a7a;
+    border-bottom: 1px solid #bcbcbc;
+    position: absolute;
+    left: 42px;
+    top: 0;
+    height: 13px
+}
+
+.list_section .desc_public .direction_info {
+    font-size: 11px;
+    color: #7a7a7a
+}
+
+.desc_public .ico_path {
+    overflow: visible;
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 50%;
+    line-height: 23px;
+    color: #fff;
+    text-align: center;
+    text-indent: 0;
+    box-sizing: border-box
+}
+
+.desc_public .ico_path::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 24px;
+    z-index: -1;
+    width: 2px;
+    height: 108%;
+    margin-left: -1px;
+    background-color: #e5e5e5
+}
+
+.desc_public .ico_path.next_long_interval::before {
+    top: 30px
+}
+
+.list_public .ico_path::before {
+    z-index: 0
+}
+
+.list_detail .ico_path::before {
+    top: 27px;
+    left: 13px;
+    width: 4px;
+    padding-bottom: 6px
+}
+
+.detail_start .ico_path::before {
+    top: 37px
+}
+
+.list_detail .public_SES1 .ico_path:before {
+    background-color: #3356b4
+}
+
+.list_detail .public_SES2 .ico_path:before {
+    background-color: #3cb44a
+}
+
+.list_detail .public_SES3 .ico_path:before {
+    background-color: #ff8939
+}
+
+.list_detail .public_SES4 .ico_path:before {
+    background-color: #09b5ea
+}
+
+.list_detail .public_SES5 .ico_path:before {
+    background-color: #924bdd
+}
+
+.list_detail .public_SES6 .ico_path:before {
+    background-color: #b55e16
+}
+
+.list_detail .public_SES7 .ico_path:before {
+    background-color: #727718
+}
+
+.list_detail .public_SES8 .ico_path:before {
+    background-color: #ef4b96
+}
+
+.list_detail .public_SES9 .ico_path:before {
+    background-color: #cea43a
+}
+
+.list_detail .public_SES22 .ico_path:before {
+    background-color: #83b5e1
+}
+
+.list_detail .public_SES23 .ico_path:before {
+    background-color: #f2bf35
+}
+
+.list_detail .public_SES26 .ico_path:before {
+    background-color: #69cccc
+}
+
+.list_detail .public_SES28 .ico_path:before {
+    background-color: #69cccc
+}
+
+.list_detail .public_SES27 .ico_path:before {
+    background-color: #44a9e7
+}
+
+.list_detail .public_SES33 .ico_path:before {
+    background-color: #33b5c8
+}
+
+.list_detail .public_SES34 .ico_path:before {
+    background-color: #ce3245
+}
+
+.list_detail .public_SES35 .ico_path:before {
+    background-color: #f3c01c
+}
+
+.list_detail .public_SES36 .ico_path:before {
+    background-color: #feb768
+}
+
+.list_detail .public_SES37 .ico_path:before {
+    background-color: #8cc966
+}
+
+.list_detail .public_SES38 .ico_path:before {
+    background-color: #fa972e
+}
+
+.list_detail .public_SES39 .ico_path:before {
+    background-color: #ffa340
+}
+
+.list_detail .public_SES40 .ico_path:before {
+    background-color: #187ce8
+}
+
+.list_detail .public_SES41 .ico_path:before {
+    background-color: #d2ca29
+}
+
+.list_detail .public_SES42 .ico_path:before {
+    background-color: #85bf37
+}
+
+.list_detail .public_SES43 .ico_path:before {
+    background-color: #9a7611
+}
+
+.list_detail .public_SES44 .ico_path:before {
+    background-color: #ffce32
+}
+
+.list_detail .public_SES45 .ico_path:before {
+    background-color: #6789ca
+}
+
+.list_detail .public_PSS1 .ico_path:before {
+    background-color: #ff8939
+}
+
+.list_detail .public_PSS2 .ico_path:before {
+    background-color: #3cb44a
+}
+
+.list_detail .public_PSS3 .ico_path:before {
+    background-color: #cea43a
+}
+
+.list_detail .public_PSS4 .ico_path:before {
+    background-color: #187ce8
+}
+
+.list_detail .public_PSS10 .ico_path:before {
+    background-color: #835c9f
+}
+
+.list_detail .public_PSS11 .ico_path:before {
+    background-color: #3356b4
+}
+
+.list_detail .public_DGS1 .ico_path:before {
+    background-color: #ee1132
+}
+
+.list_detail .public_DGS2 .ico_path:before {
+    background-color: #3cb44a
+}
+
+.list_detail .public_DGS3 .ico_path:before {
+    background-color: #f2bf35
+}
+
+.list_detail .public_KJS1 .ico_path:before {
+    background-color: #3cb44a
+}
+
+.list_detail .public_KJS2 .ico_path:before {
+    background-color: #189e27
+}
+
+.list_detail .public_DJS1 .ico_path:before {
+    background-color: #3cb44a
+}
+
+.ico_cover_wrap {
+    position: relative;
+    height: 17px;
+    display: inline-block;
+    font-weight: normal;
+    vertical-align: top
+}
+
+.ico_TRAIN,.ico_BUS,.public_subway .ico_typesubway {
+    padding-top: 1px;
+    border: 0 none;
+    font-size: 10px;
+    color: #fff;
+    display: inline-block;
+    line-height: 16px;
+    height: 15px;
+    text-align: center;
+    vertical-align: top
+}
+
+.list_detail .public_subway .ico_typesubway:nth-of-type(3) {
+    margin-left: 4px
+}
+
+.ico_cover_wrap .ico_TRAIN,.ico_cover_wrap .ico_BUS {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    white-space: nowrap
+}
+
+.public_subway .ico_cover_wrap .ico_typesubway {
+    float: left
+}
+
+.public_subway .ico_cover_wrap .ico_typesubway.cover_count_1 {
+    left: 26px
+}
+
+.public_subway .ico_GENERAL {
+    padding: 2px 0 0 1px;
+    font-size: 14px;
+    color: #ff3a21
+}
+
+.public_subway .ico_EXPRESS {
+    padding: 2px 0 0 1px;
+    font-size: 14px;
+    color: #ff3a21
+}
+
+.public_subway .ico_typesubway+.ico_typesubway {
+    padding-left: 0
+}
+
+.public_subway .ico_typesubway+.ico_typesubway:before {
+    content: ',';
+    display: inline-block;
+    vertical-align: top
+}
+
+.public_subway .ico_ITX {
+    background-color: #e3674c
+}
+
+.public_subway .ico_DIRECT {
+    background-color: #e3674c
+}
+
+.public_subway .txt_g .numGENERAL,.public_subway .txt_g .numEXPRESS {
+    display: inline-block;
+    color: #888
+}
+
+.ico_TRAIN {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_tag2_230829.png) no-repeat 0 0;
+    background-size: 100px auto
+}
+
+.ico_BUS {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_tag2_230829.png) no-repeat 0 0;
+    background-size: 100px auto
+}
+
+.public_INTERCITY_BUS .ico_BUS {
+    width: 23px;
+    height: 15px;
+    background-position: -75px -30px
+}
+
+.public_EXPRESS_BUS .ico_BUS {
+    width: 23px;
+    height: 15px;
+    background-position: -30px -45px
+}
+
+.iroute_wrap .public_INTERCITY_BUS .ico_BUS,.iroute_wrap .public_EXPRESS_BUS .ico_BUS,.iroute_wrap .public_TRAIN .ico_TRAIN {
+    margin-top: 4px
+}
+
+.public_train_ktx .ico_TRAIN {
+    width: 23px;
+    height: 15px;
+    background-position: 0 -60px
+}
+
+.public_train_srt .ico_TRAIN {
+    width: 23px;
+    height: 15px;
+    background-position: 0 -75px
+}
+
+.public_train_itx .ico_TRAIN {
+    width: 23px;
+    height: 15px;
+    background-position: -25px -60px
+}
+
+.public_train_sitx .ico_TRAIN {
+    width: 43px;
+    height: 15px;
+    background-position: 0 -90px
+}
+
+.public_train_maumitx .ico_TRAIN {
+    width: 36px;
+    height: 15px;
+    background-position: 0 -105px
+}
+
+.public_train_mu .ico_TRAIN {
+    width: 27px;
+    background-position: -50px -60px
+}
+
+.public_train_nuri .ico_TRAIN {
+    width: 27px;
+    background-position: -50px -75px
+}
+
+.public_train_tong .ico_TRAIN {
+    width: 23px;
+    height: 15px;
+    background-position: -25px -75px
+}
+
+.public_train_dmz .ico_TRAIN {
+    width: 23px;
+    height: 15px;
+    background-position: -45px -90px
+}
+
+.public_train_saemaul .ico_TRAIN {
+    width: 27px;
+    height: 15px;
+    background-position: -70px -90px
+}
+
+.public_bus .ico_path {
+    background-color: #304583;
+    background-position: -1px -171px
+}
+
+.ico_path {
+    display: block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    background: url(//t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_path.png) no-repeat;
+    text-indent: -9999px;
+    vertical-align: top;
+    background-size: 245px auto
+}
+
+
+.searchEmpty {
+	background: #fff;
+    text-align: center;
+    padding-top: 51px;
+    color: #888;
+}
+
+.top5 {
+	text-align: center;
+    padding-top: 5px;
+}
+
+.top5 h3 {
+	font-weight: 600;
+    padding-bottom: 7px;
+}
+
+.top5 li {
+	border-top: 1px dotted #ddd;
+    padding: 5px 0;
+}
+ 

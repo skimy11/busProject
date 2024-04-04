@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.burin.cmmn.dao.MainDao">
+
+<!-- 지도에 정거장 조회 -->
+<select id="getBusStopInfo" parameterType="map" resultType="egovframework.burin.cmmn.vo.MainVO">
+    SELECT route_id AS routeId,
+           route_nm AS routeNm,
+           route_ord AS routeOrd,
+           node_id AS nodeId,
+           ars_id AS arsId,
+           node_nm AS nodeNm,
+           lngt AS lng,
+           la AS lat,
+           bus_id AS busId
+    FROM route
+     WHERE ROUND(lngt::numeric, 3) = ROUND(#{lng}::numeric, 3)
+      AND ROUND(la::numeric, 4) = ROUND(#{lat}::numeric, 4)
+</select>
+
+<!-- 정거장명으로 버스 정류장 검색 -->
+<select id="searchBusStopByNodeName" parameterType="string" resultType="egovframework.burin.cmmn.vo.MainVO">
+    SELECT route_id AS routeId,
+           route_nm AS routeNm,
+           node_id AS nodeId,
+           ars_id AS arsId,
+           node_nm AS nodeNm,
+           lngt AS lng,
+           la AS lat,
+           bus_id AS busId
+    FROM route
+    WHERE node_nm like CONCAT(#{nodeNm}, '%')
+</select>
+
+<!-- 노선 정보 조회 -->
+<select id="getRouteInfoByRouteNm" parameterType="string" resultType="egovframework.burin.cmmn.vo.RouteInfoVO">
+    SELECT route_ord As routeOrd, 
+    	   node_nm AS nodeNm, 
+    	   lngt AS lng,
+           la AS lat,
+           ars_id AS arsId
+    FROM route
+    WHERE route_nm = #{routeNm}
+    ORDER BY route_ord ASC
+</select>
+
+
+
+
+
+</mapper>
+

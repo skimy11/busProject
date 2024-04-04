@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.burin.cmmn.dao.SearchDao">
+	<!-- 길찾기 조회 -->
+	<select id="findRouteByStartAndEndStation" resultType="egovframework.burin.cmmn.vo.SearchVO">
+	    SELECT 
+	        route_id, 
+	        route_nm, 
+	        start_station, 
+	        end_station, 
+	        MIN(estimated_time) AS estimated_time
+	    FROM (
+	        SELECT 
+	            a.route_id, 
+	            a.route_nm, 
+	            a.node_nm AS start_station,
+	            b.node_nm AS end_station,
+	            (b.route_ord - a.route_ord) * 2 AS estimated_time
+	        FROM 
+	            route a
+	        JOIN 
+	            route b ON a.route_id = b.route_id
+	        WHERE 
+	            a.node_nm like CONCAT(#{startStation}, '%') AND b.node_nm like CONCAT(#{endStation}, '%') AND a.route_ord &lt; b.route_ord
+	    ) AS subquery
+	    GROUP BY route_id, route_nm, start_station, end_station
+	</select>
+
+	<!-- 길찾기 노선 조회 -->
+    <select id="findRouteDetails" resultType="egovframework.burin.cmmn.vo.SearchVO">
+        SELECT 
+            r.route_id,
+            r.route_nm,
+            r.route_ord,
+            r.node_id,
+            r.ars_id,
+            r.node_nm,
+            r.lngt,
+            r.la,
+            r.bus_id
+        FROM 
+            route r
+         WHERE 
+	        r.route_id = #{routeId}
+	        AND r.route_ord &gt;= 
+	            (SELECT MIN(route_ord) FROM route WHERE node_nm = #{startStation} AND route_id = #{routeId})
+	        AND r.route_ord &lt;= 
+	            (SELECT MIN(route_ord) FROM route WHERE node_nm = #{endStation} AND route_id = #{routeId})
+        ORDER BY 
+            r.route_ord ASC
+         
+    </select>
+    
+     <!-- 스테이션 위치 정보 조회 -->
+	<select id="findLocationsByStationName" resultType="egovframework.burin.cmmn.vo.SearchVO">
+        SELECT 
+            node_nm AS nodeNm,
+            la AS "pointLat",
+            lngt AS "pointLngt"
+        FROM 
+            route
+        WHERE 
+            node_nm = #{endStation}
+            LIMIT 1
+    </select>
+
+
+</mapper>
+
